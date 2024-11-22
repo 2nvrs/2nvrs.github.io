@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cnvrs browser by unalog</title>
 
-
-    <link rel="icon" type="image/png" href="icon.ico"> 
+    <link rel="icon" type="image/png" href="icon.ico">
 
     <style>
         @font-face {
-            font-family: 'CourierPS';
+            font-family: 'HelveticaNowText';
             src: url('helveticanowtext-bold-demo.ttf') format('truetype');
         }
         body {
             background-color: black;
             color: white;
-            font-family: 'HelveicaNowText', Arial, sans-serif;
+            font-family: 'HelveticaNowText', Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -47,8 +46,7 @@
     <div class="logo">
         <img src="icon.svg" alt="cnvrs browser™ (not actually)">
     </div>
-    <div class="datetime" id="datetime">
-    </div>
+    <div class="datetime" id="datetime"></div>
     <div class="links">
         <div>cnvrs</div>
         <div>browser</div>
@@ -71,15 +69,14 @@
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
-                hour12: false
+                hour12: true // Adjust for AM/PM
             };
             const now = new Date().toLocaleString('en-US', options);
             const [date, time] = now.split(', ');
-            document.getElementById('datetime').textContent = `${date} ${time}pm Chicago`;
+            document.getElementById('datetime').textContent = `${date} ${time} Chicago`;
         }
-        
+
         updateTime();
-        
         setInterval(updateTime, 1000);
     </script>
 </body>
