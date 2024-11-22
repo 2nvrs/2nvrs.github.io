@@ -5,48 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cnvrs browser by unalog</title>
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="icon.ico">
 
     <style>
+        /* Include Helvetica Neue Bold */
         @font-face {
-            font-family: 'HelveticaNowText';
-            src: url('helveticanowtext-bold-demo.ttf') format('truetype');
+            font-family: 'Helvetica Neue';
+            src: url('helvetica-neue-bold.ttf') format('truetype'); /* Replace with the actual file path */
+            font-weight: bold;
         }
+
+        /* Base Styles */
         body {
-            background-color: black;
-            color: white;
-            font-family: 'HelveticaNowText', Arial, sans-serif;
-            text-align: center;
+            background-color: #121212; /* Off-black */
+            color: #ffffff; /* White text */
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Fallback to Arial if Helvetica Neue is unavailable */
             margin: 0;
             padding: 0;
-            user-select: none; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            user-select: none;
         }
+
+        /* Logo Section */
         .logo {
-            margin-top: 20vh;
+            margin-bottom: 20px;
         }
         .logo img {
-            width: 200px;
+            width: 150px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
+        .logo img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* Date and Time */
         .datetime {
             margin-top: 10px;
-            font-size: 16px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #bbbbbb; /* Light gray */
         }
+
+        /* Links Section */
         .links {
-            margin-top: 20px;
-            font-size: 18px;
-            line-height: 1.5em;
+            margin-top: 30px;
         }
-        .discord-embed {
+        .links div {
+            font-size: 1.1rem;
+            font-weight: bold; /* Ensure bold styling */
+            margin: 5px 0;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        .links div:hover {
+            color: #00bcd4; /* Accent color (light blue) */
+        }
+
+        /* Footer/Contact */
+        .contact {
             margin-top: 40px;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #bbbbbb;
+        }
+        .contact a {
+            color: #00bcd4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact a:hover {
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
+    <!-- Logo -->
     <div class="logo">
-        <img src="icon.svg" alt="cnvrs browser™ (not actually)">
+        <img src="icon.svg" alt="cnvrs browser logo">
     </div>
+
+    <!-- Date and Time -->
     <div class="datetime" id="datetime"></div>
+
+    <!-- Links Section -->
     <div class="links">
         <div>cnvrs</div>
         <div>browser</div>
@@ -56,9 +104,14 @@
         <div>i</div>
         <div>promise</div>
         <div>:)</div>
-        <div>cnvrsbrowser@gmail.com</div>
     </div>
 
+    <!-- Contact Info -->
+    <div class="contact">
+        Contact us at <a href="mailto:cnvrsbrowser@gmail.com">cnvrsbrowser@gmail.com</a>
+    </div>
+
+    <!-- JavaScript -->
     <script>
         function updateTime() {
             const options = {
@@ -69,7 +122,7 @@
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
-                hour12: true // Adjust for AM/PM
+                hour12: true
             };
             const now = new Date().toLocaleString('en-US', options);
             const [date, time] = now.split(', ');
