@@ -1,4 +1,91 @@
-html {
-  height: 100%;
-  width: 100%;
+/* Global Styling */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #121212; /* Pure dark background */
+    color: #e0e0e0; /* Soft white text */
+    text-align: center;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Logo Section */
+.logo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img {
+    width: 160px;
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.6)); /* Subtle shadow for depth */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.8));
+}
+
+/* Date and Time */
+.datetime {
+    font-size: 1.2rem;
+    color: #b0b0b0; /* Light gray */
+    margin-top: 10px;
+    letter-spacing: 0.5px; /* Subtle spacing for readability */
+}
+
+/* Links Section */
+.links {
+    margin-top: 30px;
+    display: grid;
+    gap: 10px;
+}
+.links div {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    color: #e0e0e0;
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent button background */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+.links div:hover {
+    background: rgba(0, 188, 212, 0.15); /* Accent hover background */
+    color: #00bcd4;
+    border-color: #00bcd4;
+}
+
+/* Contact Info */
+.contact {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+.contact a {
+    color: #00bcd4; /* Accent color for link */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact a:hover {
+    color: #e0e0e0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.logo, .datetime, .links, .contact {
+    animation: fadeIn 1.5s ease-in-out;
 }
